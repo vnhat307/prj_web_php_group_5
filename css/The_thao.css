@@ -12,14 +12,14 @@ html, body {
     line-height: 1.6;
 }
 
-/* ================== WRAPPER + STICKY FOOTER ================== */
+/* ================== WRAPPER ================== */
 .wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Nội dung chính giãn ra để đẩy footer xuống đáy */
+/* nd page can giua, lam chuan */
 .page-wrapper {
     flex: 1;
     max-width: 1200px;
@@ -121,7 +121,7 @@ nav {
     padding: 10px;
 }
 
-/* === THỂ THAO PAGE === */
+/* === THE_THAO PAGE === */
 .category-header {
     margin: 20px 0 10px;
     padding-bottom: 10px;
@@ -134,7 +134,6 @@ nav {
     margin: 0;
 }
 
-/* Hero lớn */
 .hero {
     position: relative;
     margin-bottom: 25px;
@@ -169,7 +168,7 @@ nav {
     opacity: 0.9;
 }
 
-/* Grid 2 cột */
+/* Grid 2 column */
 .news-grid-2col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -197,7 +196,7 @@ nav {
     margin: 0;
 }
 
-/* Grid 4 cột nhỏ */
+/* Grid 4 column */
 .news-grid-4col {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
