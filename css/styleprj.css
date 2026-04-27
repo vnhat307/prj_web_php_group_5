@@ -499,25 +499,33 @@ body.dark .copyright {
     padding: 20px 10px !important;
     gap: 15px !important;
     align-items: center !important;
-    position: relative; /* Để làm gốc cho nút Darkmode */
+    position: relative; /* Gốc cho nút Darkmode hoặc các icon khác */
   }
+
+  /* ẨN LOGO TRONG RESPONSIVE */
+  header .logo {
+    display: none !important;
+  }
+
   header h1 {
     font-size: 28px !important;
     margin: 0 !important;
     line-height: 1.2;
+    text-align: center; /* Đảm bảo chữ nằm giữa khi mất logo */
   }
+
   .search-box {
     width: 100% !important;
-    max-width: 350px; /* Đừng để nó quá to trên máy tính bảng */
+    max-width: 350px;
     margin: 0 auto !important;
     display: flex;
   }
+
   .search-box input {
     width: 100% !important;
     padding: 10px 15px !important;
-    font-size: 16px !important; /* Tránh bị zoom trên iPhone */
+    font-size: 16px !important; /* Fix lỗi tự động zoom trên iOS */
   }
-
   /* Hiện hamburger */
   .hamburger {
     display: flex;
