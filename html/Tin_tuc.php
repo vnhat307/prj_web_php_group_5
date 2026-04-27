@@ -414,7 +414,7 @@ $tin_nongmang  = getNewsByCategory($conn, 'C08', 5);
     </div>
 
     <script src="../javascript/Tin_tuc.js"></script>
-    <script src="../javascript/prj.js"></script>
+    <script src="../javascript/tha_tym.js"></script>
     <script src="../javascript/light_dark_mode.js"></script>
     <script src="../javascript/menu_hide_show.js"></script>
     <script src="../javascript/search_filter.js"></script>

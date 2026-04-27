@@ -125,7 +125,7 @@ if (isset($_GET['keyword'])) {
         </div>
       </div>
     </div>
-    <script src="../javascript/prj.js"></script>
+    <script src="../javascript/tha_tym.js"></script>
     <script src="../javascript/light_dark_mode.js"></script>
     <script src="../javascript/menu_hide_show.js"></script>
   </body>

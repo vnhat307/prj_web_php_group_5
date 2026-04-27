@@ -2,17 +2,39 @@
 session_start();
 include '../includes/connect.php'; 
 
+// 1. Tin tiêu điểm: Lấy tin đầu tiên (N01)
 $sql_featured = "SELECT * FROM news ORDER BY NEWS_ID ASC LIMIT 1";
 $res_featured = mysqli_query($conn, $sql_featured);
 $featured = mysqli_fetch_assoc($res_featured);
+$featured_id = $featured['NEWS_ID'] ?? '';
 
-$sql_sub = "SELECT * FROM news ORDER BY NEWS_ID ASC LIMIT 1, 3";
+// 2. Ba tin phụ: Lấy 3 tin tiếp theo (N02, N03, N04)
+$sql_sub = "SELECT * FROM news WHERE NEWS_ID > '$featured_id' ORDER BY NEWS_ID ASC LIMIT 3";
 $res_sub = mysqli_query($conn, $sql_sub);
 
-$sql_list = "SELECT n.*, c.CATE_NAME FROM news n JOIN category c ON n.CATE_ID = c.CATE_ID ORDER BY n.NEWS_ID DESC";
+// Thu thập các ID đã dùng để mục danh sách bên dưới không bị lặp lại
+$used_ids = ["'$featured_id'"];
+$res_sub_check = mysqli_query($conn, "SELECT NEWS_ID FROM news WHERE NEWS_ID > '$featured_id' ORDER BY NEWS_ID ASC LIMIT 3");
+while($row = mysqli_fetch_assoc($res_sub_check)) {
+    $used_ids[] = "'" . $row['NEWS_ID'] . "'";
+}
+$exclude_ids = implode(',', $used_ids);
+
+// 3. Danh sách tin dọc bên dưới: Lấy tiếp từ N05 trở đi, giới hạn 6 tin
+$sql_list = "SELECT n.*, c.CATE_NAME 
+             FROM news n 
+             JOIN category c ON n.CATE_ID = c.CATE_ID 
+             WHERE n.NEWS_ID NOT IN ($exclude_ids) 
+             ORDER BY n.NEWS_ID ASC 
+             LIMIT 6";
 $res_list = mysqli_query($conn, $sql_list);
 
-$sql_trending = "SELECT n.NEWS_ID, n.NEWS_NAME, n.NOIDUNG, n.NEWS_URL, t.VIEWS FROM trending t JOIN news n ON t.NEWS_ID = n.NEWS_ID ORDER BY t.VIEWS DESC";
+// 4. Tin nổi bật Sidebar (Giữ nguyên theo lượt xem )
+$sql_trending = "SELECT n.NEWS_ID, n.NEWS_NAME, n.NOIDUNG, n.NEWS_URL, t.VIEWS 
+                 FROM trending t 
+                 JOIN news n ON t.NEWS_ID = n.NEWS_ID 
+                 ORDER BY t.VIEWS DESC 
+                 LIMIT 5";
 $res_trending = mysqli_query($conn, $sql_trending);
 ?>
 <!doctype html>
@@ -241,7 +263,7 @@ $res_trending = mysqli_query($conn, $sql_trending);
         </div>
       </footer>
     </div>
-    <script src="../javascript/prj.js"></script>
+    <script src="../javascript/tha_tym.js"></script>
     <script src="../javascript/light_dark_mode.js"></script>
     <script src="../javascript/menu_hide_show.js"></script>
     <script src="../javascript/search_filter.js"></script>

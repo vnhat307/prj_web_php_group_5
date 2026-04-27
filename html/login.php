@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../includes/connect.php';
-// echo "Mã băm chuẩn máy ông cho 'Admin123' là: " . password_hash("Admin123", PASSWORD_DEFAULT);
+// echo "Mã băm chuẩn cho 'Admin123' là: " . password_hash("Admin123", PASSWORD_DEFAULT);
 // exit;
 if (isset($_GET['msg']) && $_GET['msg'] == 'success') {
     $success = "Đăng ký thành công! Vui lòng đăng nhập.";
