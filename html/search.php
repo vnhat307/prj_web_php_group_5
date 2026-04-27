@@ -55,12 +55,12 @@ if (isset($_GET['keyword'])) {
 
           <ul class="nav-menu" id="nav-menu">
             <li><a href="./Trang_chu.php">Trang chủ</a></li>
-            <li><a href="./Gioi_thieu.html">Giới thiệu</a></li>
-            <li><a href="./Tin_tuc.html">Tin tức</a></li>
-            <li><a href="./The_thao.html">Thể thao</a></li>
-            <li><a href="./Giai_tri.html">Giải trí</a></li>
-            <li><a href="./Lien_he.html">Liên hệ</a></li>
-            <li><a href="./FAQ.html">FAQ</a></li>
+            <li><a href="./Gioi_thieu.php">Giới thiệu</a></li>
+            <li><a href="./Tin_tuc.php">Tin tức</a></li>
+            <li><a href="./The_thao.php">Thể thao</a></li>
+            <li><a href="./Giai_tri.php">Giải trí</a></li>
+            <li><a href="./Lien_he.php">Liên hệ</a></li>
+            <li><a href="./FAQ.php">FAQ</a></li>
           </ul>
           
           <div class="user-nav">
