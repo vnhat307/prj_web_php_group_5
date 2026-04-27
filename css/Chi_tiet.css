@@ -1,0 +1,179 @@
+/* css/chi_tiet.css */
+body {
+  background: #fff;
+  font-family: "Segoe UI", serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.article-wrapper {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.back-home {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.cate-name {
+  color: #e74c3c;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.article-title {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 15px 0;
+  color: #222;
+}
+
+.article-meta {
+  color: #757575;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 25px;
+}
+
+.article-image-box {
+  margin: 30px -20px;
+}
+
+.article-image-box img {
+  width: 100%;
+  display: block;
+}
+
+.image-caption {
+  background: #f7f7f7;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+  border-bottom: 2px solid #eee;
+}
+
+.article-content {
+  font-size: 19px;
+  line-height: 1.8;
+  text-align: justify;
+  color: #333;
+  margin-bottom: 40px;
+  white-space: pre-line;
+}
+
+.author-sign {
+  text-align: right;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+}
+
+.btn-like {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #555;
+  transition: 0.2s;
+}
+
+.btn-like-active {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: white;
+}
+
+.stats-item {
+  font-size: 14px;
+  color: #888;
+}
+
+.comment-header {
+  font-size: 20px;
+  font-weight: 700;
+  border-left: 4px solid #e74c3c;
+  padding-left: 10px;
+  margin-bottom: 25px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  height: 100px;
+  font-family: inherit;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.comment-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.comment-item {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.comment-item img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.comment-item-info b {
+  font-size: 15px;
+  color: #076db6;
+}
+
+.comment-item-info span {
+  font-size: 12px;
+  color: #999;
+  margin-left: 10px;
+}
+
+.comment-item-info p {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: #444;
+}
