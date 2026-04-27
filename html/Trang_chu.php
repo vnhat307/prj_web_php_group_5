@@ -42,7 +42,7 @@ $res_trending = mysqli_query($conn, $sql_trending);
           <button type="submit" class="ntbutton">Find</button>
         </form>
         <div class="logo">
-          <img src="../img/logo.webp" alt="Logo" />
+          <img src="../img/logo.png" alt="Logo" />
         </div>
       </header>
 
