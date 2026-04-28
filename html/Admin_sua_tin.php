@@ -2,20 +2,20 @@
 session_start();
 include '../includes/connect.php';
 
-// 1. KIỂM TRA ĐĂNG NHẬP: Nếu không có session thì mới cho văng ra login
+// kiem tra login neu khong co session thì dc login
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
 
-// 2. LẤY DỮ LIỆU TIN CẦN SỬA
+// lay data can sua
 if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
     $sql_get = "SELECT * FROM news WHERE NEWS_ID = '$id'";
     $res_get = mysqli_query($conn, $sql_get);
     $news_edit = mysqli_fetch_assoc($res_get);
 
-    // Nếu không tìm thấy tin, đá về trang tương ứng với quyền
+    // neu ko tim thay tin, ve trang tuong ung vs quyen
     if (!$news_edit) {
         $back_page = ($_SESSION['role'] === 'Admin') ? "admin.php" : "author_news.php";
         header("Location: $back_page");
@@ -23,10 +23,10 @@ if (isset($_GET['id'])) {
     }
 }
 
-// 3. XỬ LÝ CẬP NHẬT
+// xu ly cap nhat
 if (isset($_POST['submit'])) {
     $news_id = $_POST['news_id'];
-    // Dùng real_escape_string để tránh lỗi dấu nháy đơn làm hỏng câu lệnh SQL
+    // real_escape_string, tranh loi dau nhay don (cua lenh sql)
     $news_name = mysqli_real_escape_string($conn, $_POST['news_name']);
     $cate_id = $_POST['cate_id'];
     $noidung = mysqli_real_escape_string($conn, $_POST['noidung']);
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         WHERE NEWS_ID = '$news_id'";
     
     if (mysqli_query($conn, $sql_update)) {
-        // TỰ ĐỘNG QUAY VỀ ĐÚNG TRANG THEO QUYỀN
+        // auto ve dung trang theo quyen 
         if ($_SESSION['role'] === 'Admin') {
             header("Location: admin.php");
         } else {
@@ -64,7 +64,7 @@ $res_cate = mysqli_query($conn, $sql_cate);
     <title>Sửa Tin Tức - <?php echo $_SESSION['role']; ?></title>
     <link rel="stylesheet" href="../css/admin.css">
     <style>
-        /* Thêm tí style cho đẹp */
+      
         .sidebar p { color: #fff; padding: 10px 20px; font-size: 13px; opacity: 0.8; }
         .btn-submit { cursor: pointer; }
     </style>

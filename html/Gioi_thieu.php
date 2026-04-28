@@ -23,7 +23,7 @@ include '../includes/connect.php';
     />
 
     <style>
-      /* Style cho thanh User Nav đồng bộ với toàn trang */
+      /* Style cho thanh User Nav dong bo vs all trang */
       .user-nav {
         display: flex;
         align-items: center;
@@ -57,7 +57,7 @@ include '../includes/connect.php';
       .user-nav .logout-btn:hover {
         background: #95a5a6;
       }
-      /* Sửa lỗi rớt dấu cho blockquote */
+      /* fix loi rớt dấu cho blockquote */
 blockquote { font-style: normal; line-height: 1.6; }
     </style>
   </head>

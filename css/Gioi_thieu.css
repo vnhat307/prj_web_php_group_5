@@ -1,4 +1,4 @@
-/* ── Variables bổ sung (styleprj không có) ── */
+/* ── Variables bo sung (styleprj chua co) ── */
 :root {
   --clr-bg: #f7f4ef;
   --clr-surface: #ffffff;
@@ -16,7 +16,7 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
-/* Tạm thời cho hiện tất cả mọi thứ để check xem nội dung nằm ở đâu */
+/* show all tam thoi, check xem ndung nam o dau */
 
 html {
   scroll-behavior: smooth;
@@ -51,9 +51,7 @@ main {
   padding-block: 4rem;
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
+/*HERO */
 .hero {
   position: relative;
   overflow: hidden;
@@ -114,9 +112,7 @@ main {
   max-width: 420px;
 }
 
-/* ============================================================
-   SECTIONS CHUNG
-   ============================================================ */
+/* SECTIONS CHUNG */
 .section-block {
   padding-block: 3.5rem;
   border-bottom: 1px solid var(--clr-border);
@@ -144,9 +140,7 @@ main {
   color: var(--clr-ink);
 }
 
-/* ============================================================
-   ABOUT GRID
-   ============================================================ */
+/* ABOUT GRID */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 240px;
@@ -204,9 +198,7 @@ main {
   display: block;
 }
 
-/* ============================================================
-   MISSION
-   ============================================================ */
+/* MISSION */
 .mission-list {
   display: flex;
   flex-direction: column;
@@ -250,9 +242,7 @@ main {
   color: var(--clr-ink-soft);
 }
 
-/* ============================================================
-   VISION
-   ============================================================ */
+/* VISION */
 .vision-wrap {
   background: var(--clr-accent-bg);
   border-left: 4px solid var(--clr-accent);
@@ -272,9 +262,7 @@ blockquote {
   color: var(--clr-ink);
 }
 
-/* ============================================================
-   VALUES
-   ============================================================ */
+/*VALUES */
 .values-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -313,9 +301,7 @@ blockquote {
   color: var(--clr-ink-soft);
 }
 
-/* ============================================================
-   TEAM / AVATAR
-   ============================================================ */
+/* TEAM / AVATAR */
 .team-desc {
   color: var(--clr-ink-soft);
   max-width: 600px;
@@ -387,10 +373,7 @@ blockquote {
   line-height: 1.4;
 }
 
-/* ============================================================
-   DARK MODE — chỉ phần riêng trang này
-   (header / nav / footer dark đã có trong styleprj.css)
-   ============================================================ */
+/* DARK MODE rieng (footer nav &footer da co o main css)*/
 body.dark .hero {
   background-color: #141210;
 }
@@ -460,9 +443,7 @@ body.dark .avatar-name {
   color: #a09080;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/*RESPONSIVE */
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;

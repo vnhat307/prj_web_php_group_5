@@ -2,13 +2,13 @@
 session_start();
 include '../includes/connect.php';
 
-// Kiểm tra quyền Admin
+// kiem tra quyen admin
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
     header("Location: login.php");
     exit;
 }
 
-// Xử lý các hành động: Duyệt, Gỡ, Xóa
+// xu ly hanh dong, duyet, go, xoa
 if (isset($_GET['action']) && isset($_GET['id'])) {
     $action = $_GET['action'];
     $id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -18,7 +18,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     } elseif ($action == 'hide') {
         mysqli_query($conn, "UPDATE news SET TRANGTHAI = 0 WHERE NEWS_ID = '$id'");
     } elseif ($action == 'delete') {
-        // Gỡ bỏ ràng buộc khóa ngoại trước khi xóa
+        // gỡ rang buoc Fk trc khi xoa
         mysqli_query($conn, "DELETE FROM comment WHERE NEWS_ID = '$id'");
         mysqli_query($conn, "DELETE FROM news_image WHERE NEWS_ID = '$id'");
         mysqli_query($conn, "DELETE FROM trending WHERE NEWS_ID = '$id'"); 

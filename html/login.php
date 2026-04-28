@@ -1,14 +1,13 @@
 <?php
 session_start();
 include '../includes/connect.php';
-// echo "Mã băm chuẩn cho 'Admin123' là: " . password_hash("Admin123", PASSWORD_DEFAULT);
-// exit;
+
 if (isset($_GET['msg']) && $_GET['msg'] == 'success') {
     $success = "Đăng ký thành công! Vui lòng đăng nhập.";
 }
 
 if (isset($_POST['login'])) {
-    // Làm sạch dữ liệu đầu vào (Theo tài liệu trang 29)
+    // lam sach data input 
     $username = mysqli_real_escape_string($conn, trim($_POST['username']));
     $password = $_POST['password'];
 
@@ -24,10 +23,10 @@ if (isset($_POST['login'])) {
             // if (password_verify($password, $row['PASSWORD'])) { echo "KẾT QUẢ: KHỚP!"; } else { echo "KẾT QUẢ: KHÔNG KHỚP!"; }
             // exit; 
 // --------------------------------------
-        // Kiểm tra mật khẩu đã băm (Chuẩn tài liệu trang 30)
+        // kiem tra mat khau da bam(hash)
         if (password_verify($password, $row['PASSWORD'])) {
             
-            // Đổi ngay ID mới để bảo mật phiên làm việc (Chuẩn tài liệu trang 81, 82)
+            // change ID moi, bao mat phien lam viec 
             session_regenerate_id(true);
 
             $_SESSION['acc_id'] = $row['ACC_ID'];
@@ -66,7 +65,7 @@ if (isset($_POST['login'])) {
             cursor: pointer;
             color: #666;
         }
-        /* Style cho thông báo lỗi/thành công */
+        /* Style cho thong bao loi/thanh cong */
         .alert-error { color: #d9534f; background: #f2dede; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ebccd1; }
         .alert-success { color: #3c763d; background: #dff0d8; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #d6e9c6; }
     </style>
@@ -106,11 +105,11 @@ if (isset($_POST['login'])) {
         const password = document.querySelector('#password');
 
         togglePassword.addEventListener('click', function () {
-            // Thay đổi thuộc tính type của input (Chuẩn thao tác DOM)
+            // Thay doi thuoc tinh type cua input (DOM)
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
             password.setAttribute('type', type);
             
-            // Thay đổi icon con mắt
+            // Thay doi icon con mắt
             this.classList.toggle('bi-eye');
             this.classList.toggle('bi-eye-slash');
         });

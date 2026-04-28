@@ -2,7 +2,7 @@
 session_start();
 include '../includes/connect.php'; 
 
-// Hàm lấy dữ liệu theo chuyên mục và sắp xếp mới nhất (DESC)
+// ham lay data theo chuyen muc va sap xep moi nhat (DESC)
 function getNewsByCategory($conn, $cate_id, $limit) {
     $sql = "SELECT * FROM news WHERE CATE_ID = '$cate_id' ORDER BY NEWS_ID DESC LIMIT $limit";
     $res = mysqli_query($conn, $sql);
@@ -15,7 +15,7 @@ function getNewsByCategory($conn, $cate_id, $limit) {
     return $data;
 }
 
-// Lấy dữ liệu cho 5 chuyên mục
+// lay data cho 5 chuyen muc
 $tin_trongngay = getNewsByCategory($conn, 'C01', 7);
 $tin_chinhtri  = getNewsByCategory($conn, 'C05', 3);
 $tin_doisong   = getNewsByCategory($conn, 'C06', 6);

@@ -2,23 +2,23 @@
 session_start();
 include '../includes/connect.php';
 
-// Kiểm tra quyền: Chỉ cho phép Author vào
+// chi cho phep author vao
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Author') {
     header("Location: login.php");
     exit;
 }
 
-// Lấy Author_ID từ Account_ID trong Session
+// lay Author_ID from Account_ID trong Session
 $acc_id = $_SESSION['acc_id'];
 $query_author = mysqli_query($conn, "SELECT AUTHOR_ID FROM author WHERE ACC_ID = '$acc_id'");
 $author_data = mysqli_fetch_assoc($query_author);
 $author_id = $author_data['AUTHOR_ID'] ?? '';
 
-// Xử lý Xóa bài (Chỉ cho xóa bài của chính mình)
+// xoa bài (Chi xoa bai cua chinh minh)
 if (isset($_GET['delete_id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['delete_id']);
     
-    // Trước khi xóa news, nên dọn dẹp bảng trending/comment nếu có để tránh lỗi khóa ngoại
+    // trc khi xoa news, don dep bang trending/comment (neu co), tranh loi FK
     mysqli_query($conn, "DELETE FROM trending WHERE NEWS_ID = '$id'");
     mysqli_query($conn, "DELETE FROM comment WHERE NEWS_ID = '$id'");
     
@@ -27,7 +27,7 @@ if (isset($_GET['delete_id'])) {
     exit;
 }
 
-// Lấy danh sách bài viết của Tác giả này
+// Lay danh sach bai viet cua tac gia nay
 $sql = "SELECT * FROM news WHERE AUTHOR_ID = '$author_id' ORDER BY NEWS_ID DESC";
 $result = mysqli_query($conn, $sql);
 ?>
