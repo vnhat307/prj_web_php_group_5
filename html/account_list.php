@@ -10,15 +10,15 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
 if (isset($_GET['delete_id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['delete_id']);
     
-    // BƯỚC 1: Tắt kiểm tra khóa ngoại (Chiêu cuối)
+    // tat FK
     mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 0");
     
-    // BƯỚC 2: Xóa sạch ở tất cả các bảng liên quan
+    // Xoa sach tat ca bang lien quan
     mysqli_query($conn, "DELETE FROM userr WHERE ACC_ID = '$id'");
     mysqli_query($conn, "DELETE FROM author WHERE ACC_ID = '$id'");
     mysqli_query($conn, "DELETE FROM account WHERE ACC_ID = '$id'");
     
-    // BƯỚC 3: Bật lại kiểm tra khóa ngoại để bảo vệ hệ thống
+    // bat lai kiem tra FK, bao ve he thong
     mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 1");
     
     header("Location: account_list.php");

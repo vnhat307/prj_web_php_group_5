@@ -12,7 +12,7 @@ include '../includes/connect.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
     <title>FAQ - Báo Mới</title>
     <style>
-      /* Style đồng bộ cho thanh User Nav của Leader */
+      /* Style dong bo thanh User Nav cua Leader */
       .user-nav { display: flex; align-items: center; gap: 15px; margin-left: auto; color: #333; }
       .user-nav span { font-weight: bold; color: #2c3e50; }
       .user-nav a { color: white; text-decoration: none; font-weight: bold; background: #e74c3c; padding: 5px 15px; border-radius: 20px; }
@@ -52,7 +52,7 @@ include '../includes/connect.php';
 
           <div class="user-nav">
             <?php if(isset($_SESSION['username'])) { 
-                // Kiểm tra Role để điều hướng link "Chào..."
+                //kiem tra role de dieu huong link "Chào..."
                 $panel_link = (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') ? "Admin.php" : "author_news.php";
             ?>
                 <a href="<?php echo $panel_link; ?>" style="background: none; padding: 0; color: inherit; display: inline-flex; align-items: center; gap: 5px;">

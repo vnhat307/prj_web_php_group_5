@@ -1,4 +1,4 @@
-// Kích hoạt nút thả tim
+// kich hoat nut tha tym
 document.querySelectorAll(".heart-btn").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     e.preventDefault();

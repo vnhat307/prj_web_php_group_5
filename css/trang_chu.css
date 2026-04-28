@@ -1,8 +1,4 @@
-/* TẤT CẢ CODE CSS CHUNG CHO HEADER, NAV, FOOTER ĐÃ CHUYỂN SANG styleprj.css */
-
-/* =======================================================
-   1. KHUNG SƯỜN RIÊNG CHO TRANG CHỦ (Thay thế Body cũ)
-   ======================================================= */
+/* body trang chu */
 .layout-trang-chu {
   display: grid;
   grid-template-columns: 2.2fr 1fr;
@@ -11,9 +7,7 @@
   margin-top: 20px;
 }
 
-/* =======================================================
-   2. TIN NỔI BẬT & TIN PHỤ (CỘT MAIN BÊN TRÁI)
-   ======================================================= */
+/* TIN NỔI BẬT & TIN PHỤ (CỘT MAIN BÊN TRÁI) */
 .container {
   width: 100%;
 }
@@ -39,7 +33,7 @@
 .featured-title {
   width: 100%;
   font-size: 30px;
-  font-family: "Playfair Display", serif; /* Đã nâng cấp font xịn */
+  font-family: "Playfair Display", serif; 
   font-weight: 700;
   margin-top: 10px;
 }
@@ -70,7 +64,7 @@
 }
 .sub-item h4 {
   margin-top: 10px;
-  font-family: "Playfair Display", serif; /* Đã nâng cấp font xịn */
+  font-family: "Playfair Display", serif; 
   font-weight: 700;
   font-size: 18px;
 }
@@ -90,7 +84,7 @@
   height: 100px;
   overflow: hidden;
   border-radius: 6px;
-  flex-shrink: 0; /* Ép ảnh không bị móp khi chữ quá dài */
+  flex-shrink: 0; /* pic ko bị móp khi chu qa dài */
 }
 .news_img img {
   width: 100%;
@@ -105,7 +99,7 @@
   flex: 1;
 }
 .news_items_content h4 {
-  font-family: "Playfair Display", serif; /* Đã nâng cấp font xịn */
+  font-family: "Playfair Display", serif; 
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 10px;
@@ -117,9 +111,7 @@
   font-family: "Be Vietnam Pro", sans-serif;
 }
 
-/* =======================================================
-   3. TIN HOT TREND (CỘT ASIDE BÊN PHẢI)
-   ======================================================= */
+/* TIN HOT TREND (CỘT ASIDE BÊN PHẢI)*/
 .news_trending {
   padding: 15px;
   border-radius: 10px;
@@ -139,7 +131,7 @@
 .news_trending_item h2 {
   font-size: 17px;
   font-weight: 700;
-  font-family: "Playfair Display", serif; /* Đã nâng cấp font xịn */
+  font-family: "Playfair Display", serif; 
   margin-bottom: 8px;
   line-height: 1.4;
 }
@@ -171,9 +163,7 @@
   font-family: "Be Vietnam Pro", sans-serif;
 }
 
-/* =======================================================
-   4. RESPONSIVE GIAO DIỆN ĐIỆN THOẠI (CHỈ XỬ LÝ PHẦN RUỘT)
-   ======================================================= */
+/* RESPONSIVE  (body) */
 @media screen and (max-width: 768px) {
   /* Ép 2 cột thành 1 cột dọc */
   .layout-trang-chu {
@@ -181,7 +171,7 @@
     gap: 20px;
   }
 
-  /* Bẻ các khối tin tức nằm ngang thành nằm dọc để không tràn viền */
+  /* be cac khoi nam ngang thành dọc, tránh tràn*/
   .sub-featured-grid,
   .news_item,
   .row_content {
@@ -197,7 +187,7 @@
 
   .news_img img,
   .news_trending_img img {
-    aspect-ratio: 16/9; /* Giữ tỷ lệ ảnh cho đẹp */
+    aspect-ratio: 16/9; 
   }
 }
 .featured_img img {

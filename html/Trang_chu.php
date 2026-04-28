@@ -2,17 +2,17 @@
 session_start();
 include '../includes/connect.php'; 
 
-// 1. Tin tiêu điểm: Lấy tin đầu tiên (N01)
+// tin tieu diem, lay tin dau tien(N01)
 $sql_featured = "SELECT * FROM news ORDER BY NEWS_ID ASC LIMIT 1";
 $res_featured = mysqli_query($conn, $sql_featured);
 $featured = mysqli_fetch_assoc($res_featured);
 $featured_id = $featured['NEWS_ID'] ?? '';
 
-// 2. Ba tin phụ: Lấy 3 tin tiếp theo (N02, N03, N04)
+// ba tin phu,lay 3 tin tiep theo (N02, N03, N04)
 $sql_sub = "SELECT * FROM news WHERE NEWS_ID > '$featured_id' ORDER BY NEWS_ID ASC LIMIT 3";
 $res_sub = mysqli_query($conn, $sql_sub);
 
-// Thu thập các ID đã dùng để mục danh sách bên dưới không bị lặp lại
+// Thu thap cac ID da dùng de tranh danh sach bi trùng lap
 $used_ids = ["'$featured_id'"];
 $res_sub_check = mysqli_query($conn, "SELECT NEWS_ID FROM news WHERE NEWS_ID > '$featured_id' ORDER BY NEWS_ID ASC LIMIT 3");
 while($row = mysqli_fetch_assoc($res_sub_check)) {
@@ -20,7 +20,7 @@ while($row = mysqli_fetch_assoc($res_sub_check)) {
 }
 $exclude_ids = implode(',', $used_ids);
 
-// 3. Danh sách tin dọc bên dưới: Lấy tiếp từ N05 trở đi, giới hạn 6 tin
+// danh sách tin dọc, lay tiep tu N05 tro di, limit 6 tin
 $sql_list = "SELECT n.*, c.CATE_NAME 
              FROM news n 
              JOIN category c ON n.CATE_ID = c.CATE_ID 
@@ -29,7 +29,7 @@ $sql_list = "SELECT n.*, c.CATE_NAME
              LIMIT 6";
 $res_list = mysqli_query($conn, $sql_list);
 
-// 4. Tin nổi bật Sidebar (Giữ nguyên theo lượt xem )
+// tin noi bat Sidebar (giu nguyen theo luot xem )
 $sql_trending = "SELECT n.NEWS_ID, n.NEWS_NAME, n.NOIDUNG, n.NEWS_URL, t.VIEWS 
                  FROM trending t 
                  JOIN news n ON t.NEWS_ID = n.NEWS_ID 
@@ -88,7 +88,7 @@ $res_trending = mysqli_query($conn, $sql_trending);
           
           <div class="user-nav">
     <?php if(isset($_SESSION['username'])) { 
-        // Xác định link nhảy dựa trên role
+        // xac dinh link nhay dua theo role
         $panel_link = "#";
         if($_SESSION['role'] == 'Admin') {
             $panel_link = "Admin.php";

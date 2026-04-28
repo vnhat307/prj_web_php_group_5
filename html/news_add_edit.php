@@ -14,7 +14,7 @@ $author_id = $author_data['AUTHOR_ID'] ?? '';
 
 $id = ""; $news_name = ""; $noidung = ""; $cate_id = ""; $news_URL = ""; $trangthai = 0; $is_edit = false;
 
-// Lấy danh sách Thể loại (Category) từ Database để đưa vào Dropdown
+// lay danh sach the loai (Category) from Database de dua vao Dropdown
 $category_list = mysqli_query($conn, "SELECT * FROM category");
 
 if (isset($_GET['id'])) {
