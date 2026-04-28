@@ -1,4 +1,4 @@
-<?php
+<?php // trang soạn thảo và chỉnh sửa tin tức dành cho Author
 session_start();
 include '../includes/connect.php';
 

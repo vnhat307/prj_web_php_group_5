@@ -1,12 +1,12 @@
 <?php
 session_start();
 include '../includes/connect.php';
-
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+// kiểm tra quyền truy cập, chỉ Admin mới được phép vào trang này
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') { 
     header("Location: login.php");
     exit;
 }
-
+// Xử lý thêm mới danh mục
 if (isset($_POST['add_cate'])) {
     $name = mysqli_real_escape_string($conn, $_POST['cate_name']);
     $check_id = mysqli_query($conn, "SELECT CATE_ID FROM category ORDER BY CATE_ID DESC LIMIT 1");
@@ -17,7 +17,7 @@ if (isset($_POST['add_cate'])) {
     mysqli_query($conn, "INSERT INTO category (CATE_ID, CATE_NAME, TRANGTHAI) VALUES ('$new_id', '$name', 1)");
     header("Location: category_list.php");
 }
-
+// Xử lý xóa danh mục
 if (isset($_GET['delete_id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['delete_id']);
     mysqli_query($conn, "DELETE FROM category WHERE CATE_ID = '$id'");

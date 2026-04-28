@@ -1,5 +1,11 @@
 <?php
 session_start();
+// lấy mã băm nhanh
+// if (isset($_POST['password'])) {
+//     echo "Mật khẩu thô: " . $_POST['password'] . "<br>";
+//     echo "Mã băm tương ứng: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
+//     exit; 
+// }
 include '../includes/connect.php';
 
 if (isset($_GET['msg']) && $_GET['msg'] == 'success') {

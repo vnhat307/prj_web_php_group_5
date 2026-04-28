@@ -74,6 +74,7 @@ $tin_nongmang  = getNewsByCategory($conn, 'C08', 5);
             <li><a href="./FAQ.php">FAQ</a></li>
           </ul>
           <div class="user-nav">
+            // hiển thị tên người dùng nếu đã đăng nhập, ngược lại hiển thị nút đăng nhập
             <?php if(isset($_SESSION['username'])) { 
                 $panel_link = (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') ? "Admin.php" : "author_news.php";
             ?>
@@ -243,7 +244,7 @@ $tin_nongmang  = getNewsByCategory($conn, 'C08', 5);
               <div class="section-body-with-sidebar">
                 <div class="main-content">
                   <div class="news-grid-3">
-                    <?php foreach($tin_doisong as $n): ?>
+                    <?php foreach($tin_doisong as $n): ?> // vòng lặp hiển thị tất cả tin đời sống
                     <div class="news-card">
                       <div class="thumb thumb-2">
                         <a href="Chi_tiet_tin.php?id=<?= $n['NEWS_ID'] ?>" class="img-link"><img src="<?= $n['NEWS_URL'] ?>" alt="" /></a>

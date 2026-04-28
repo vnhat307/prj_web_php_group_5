@@ -1,4 +1,4 @@
-<?php
+<?php // trang quản lý và duyệt tin tức dành cho Admin
 session_start();
 include '../includes/connect.php';
 
@@ -21,7 +21,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     header("Location: news_list.php");
     exit;
 }
-
+// truy vấn lấy tất cả tin tức cùng tên tác giả để hiển thị trong bảng quản lý
 $sql = "SELECT n.*, a.AUTHOR_NAME FROM news n LEFT JOIN author a ON n.AUTHOR_ID = a.AUTHOR_ID ORDER BY n.NEWS_ID DESC";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -58,7 +58,8 @@ $result = mysqli_query($conn, $sql);
                 </tr>
             </thead>
             <tbody>
-                <?php while($row = mysqli_fetch_assoc($result)): ?>
+                // vòng lặp hiển thị tất cả tin tức trong bảng quản lý
+                <?php while($row = mysqli_fetch_assoc($result)): ?> 
                 <tr>
                     <td><strong><?php echo $row['NEWS_ID']; ?></strong></td>
                     <td><?php echo $row['NEWS_NAME']; ?></td>

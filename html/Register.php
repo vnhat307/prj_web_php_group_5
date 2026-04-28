@@ -1,6 +1,6 @@
 <?php
 include '../includes/connect.php';
-
+// xử lý chức năng đăng ký tài khoản mới
 if (isset($_POST['register'])) {
     $fullname = $_POST['fullname'];
     $username = $_POST['username'];

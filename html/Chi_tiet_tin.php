@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include '../includes/connect.php';
 
@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) {
 }
 
 $news_id = $_GET['id'];
-
+// Đếm lượt xem và đảm bảo mỗi phiên chỉ đếm một lần
 if (!isset($_SESSION['viewed_' . $news_id])) {
     mysqli_query($conn, "UPDATE trending SET VIEWS = VIEWS + 1 WHERE NEWS_ID = '$news_id'");
     if (mysqli_affected_rows($conn) == 0) {
@@ -17,7 +17,7 @@ if (!isset($_SESSION['viewed_' . $news_id])) {
     }
     $_SESSION['viewed_' . $news_id] = true;
 }
-
+// Kiểm tra xem người dùng đã thích bài viết này chưa
 $has_liked = isset($_SESSION['liked_' . $news_id]);
 if (isset($_POST['react'])) {
     if ($has_liked) {
@@ -30,7 +30,7 @@ if (isset($_POST['react'])) {
     header("Location: Chi_tiet_tin.php?id=" . $news_id);
     exit;
 }
-
+// Xử lý bình luận mới
 if (isset($_POST['submit_comment']) && isset($_SESSION['user_id'])) {
     $noidung = trim($_POST['noidung']);
     $user_id = $_SESSION['user_id']; 
@@ -41,7 +41,7 @@ if (isset($_POST['submit_comment']) && isset($_SESSION['user_id'])) {
         exit;
     }
 }
-
+// Truy vấn lấy thông tin chi tiết bài viết, tên thể loại, tên tác giả, số lượt thích và xem
 $sql_news = "SELECT n.*, c.CATE_NAME, a.AUTHOR_NAME, IFNULL(t.LIKES, 0) as LIKES, IFNULL(t.VIEWS, 0) as VIEWS 
              FROM news n 
              JOIN category c ON n.CATE_ID = c.CATE_ID 

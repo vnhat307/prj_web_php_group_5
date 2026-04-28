@@ -1,4 +1,5 @@
-<?php
+
+<?php // xử lý chức năng tìm kiếm tin tức trên trang chủ
 session_start();
 include '../includes/connect.php';
 

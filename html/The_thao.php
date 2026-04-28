@@ -1,5 +1,5 @@
 <?php 
-session_start();
+session_start(); // bắt đầu session để quản lý đăng nhập
 include '../includes/connect.php'; 
 ?>
 <!doctype html>
@@ -53,6 +53,7 @@ include '../includes/connect.php';
             <li><a href="./FAQ.php">FAQ</a></li>
           </ul>
           <div class="user-nav">
+            // hiển thị tên người dùng nếu đã đăng nhập, ngược lại hiển thị nút đăng nhập
             <?php if(isset($_SESSION['username'])) { 
                 $panel_link = (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') ? "Admin.php" : "author_news.php";
             ?>
